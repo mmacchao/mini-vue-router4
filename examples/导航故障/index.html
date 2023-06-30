@@ -1,0 +1,26 @@
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://unpkg.com/vue-router@4"></script>
+<meta charset="UTF-8">
+<style>
+
+button,
+a {
+    margin-right: 20px;
+}
+</style>
+
+<div id="app">
+  <h1>Hello App!</h1>
+  <p>
+    <button @click="goto('/foo')">goto foo</button>
+    <button @click="goto('/bar')">goto bar</button>
+    <button @click="goto('/bar2', {isFail: 1})">goto bar: 导航守卫中终止导航</button>
+    <button @click="goto('/bar3', {async: true})">goto bar: 异步</button>
+    <button @click="goto('/bar4', {redirect: true})">在导航守卫中重定向</button>
+    <button @click="goto('/bar5', {redirect2: true})">直接重定向</button>
+  </p>
+  <!-- 路由出口 -->
+  <!-- 路由匹配到的组件将渲染在这里 -->
+  <router-view></router-view>
+</div>
+<script src="./main.js" type="module"></script>

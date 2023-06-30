@@ -1,0 +1,36 @@
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://unpkg.com/vue-router@4"></script>
+<meta charset="UTF-8">
+<style>
+a {
+    margin-right: 20px;
+}
+</style>
+
+<div id="app">
+  <h1>Hello App!</h1>
+  <p style="position: fixed; top: 30px; left: 200px;">
+    <!--使用 router-link 组件进行导航 -->
+    <!--通过传递 `to` 来指定链接 -->
+    <!--`<router-link>` 将呈现一个带有正确 `href` 属性的 `<a>` 标签-->
+    <router-link to="/foo">foo: has scroll</router-link>
+    <router-link to="/bar">bar: no scroll</router-link>
+    <router-link :to="{path: '/bar', hash: '#anchor'}">bar: scroll to anchor</router-link>
+  </p>
+  <div style="height: 80vh; overflow: auto" id="router-wrapper">
+    <!-- 路由出口 -->
+    <!-- 路由匹配到的组件将渲染在这里 -->
+    <router-view v-slot="{ Component, route }" >
+      <!-- 使用任何自定义过渡和回退到 `fade` -->
+      <transition :name="route.meta.transition || 'fade'">
+        <!--通过key强制刷新 触发动画-->
+        <component :is="Component"  :key="route.path"/>
+      </transition>
+    </router-view>
+  </div>
+  <div style="height: 100vh;">
+    <span id="anchor">我是锚点</span>
+  </div>
+
+</div>
+<script src="./main.js" type="module"></script>

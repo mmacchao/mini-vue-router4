@@ -1,0 +1,25 @@
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://unpkg.com/vue-router@4"></script>
+<meta charset="UTF-8">
+<style>
+button,
+a {
+    margin-right: 20px;
+}
+</style>
+
+<div id="app">
+  <h1>Hello App!</h1>
+  <p>
+    <router-link to="/about">goto about</router-link>
+    <router-link :to="{path: '/about', query: {dynamic: true}}">在导航守卫中添加路由并跳转到对应路由</router-link>
+    <router-link to="/article">goto article</router-link>
+    <button @click="addRoute">动态添加路由并且跳转到对应路由</button>
+    <button @click="removeRoute">通过名称删除刚刚创建的路由</button>
+    <button @click="addRoute2">添加嵌套路由</button>
+  </p>
+  <!-- 路由出口 -->
+  <!-- 路由匹配到的组件将渲染在这里 -->
+  <router-view></router-view>
+</div>
+<script src="./main.js" type="module"></script>

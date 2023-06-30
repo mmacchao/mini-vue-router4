@@ -29,16 +29,13 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-// 1 beforeRouteLeave
-// 2
-router.beforeEach
-// 3 在重用的组件里调用 beforeRouteUpdate
-// 4 在路由配置里调用 beforeEnter
-// 5 在被激活的组件里调用 beforeRouteEnter
-// 6
-router.beforeResolve
-// 7
-router.afterEach
+// 1 beforeRouteLeave  // 组件中的守卫
+// 2 router.beforeEach // 全局守卫
+// 3 在重用的组件里调用 beforeRouteUpdate // 组件中的守卫
+// 4 在路由配置里调用 beforeEnter // 路由中的守卫
+// 5 在被激活的组件里调用 beforeRouteEnter // 组件中的守卫
+// 6 router.beforeResolve // 全局守卫
+// 7 router.afterEach // 全局守卫
 // 8 调用 beforeRouteEnter 守卫中传给 next 的回调函数，创建好的组件实例会作为回调函数的参数传入
 
 
